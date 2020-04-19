@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.WindowsDX", "Sample.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample.csproj", "{6813E067-CCF2-45CC-AD75-727DF99737F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.DesktopGL", "Sample.DesktopGL\Sample.DesktopGL.csproj", "{77AEB663-01D1-4EF5-8EF6-384320B23ADA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6813E067-CCF2-45CC-AD75-727DF99737F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6813E067-CCF2-45CC-AD75-727DF99737F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6813E067-CCF2-45CC-AD75-727DF99737F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77AEB663-01D1-4EF5-8EF6-384320B23ADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77AEB663-01D1-4EF5-8EF6-384320B23ADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77AEB663-01D1-4EF5-8EF6-384320B23ADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77AEB663-01D1-4EF5-8EF6-384320B23ADA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
