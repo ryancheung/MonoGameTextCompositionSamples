@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\Fonts\SourceHanSans-Normal.otf" Link="Fonts\SourceHanSans-Normal.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.7.216-develop">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+     <PackageReference Include="SpriteFontPlus.MonoGame" Version="0.7.0.22" />
+  </ItemGroup>
+
+</Project>

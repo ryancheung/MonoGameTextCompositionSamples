@@ -8,7 +8,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 
-namespace Sample.WindowsDX
+namespace Sample
 {
     /// <summary>
     /// This is the main type for your game.
