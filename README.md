@@ -14,3 +14,6 @@ PR: https://github.com/MonoGame/MonoGame/pull/7118
 
 ## Android
 ![IME works](https://github.com/ryancheung/MonoGameTextCompositionSamples/raw/master/Images/IME-android.jpg)
+
+## iOS
+![IME works](https://github.com/ryancheung/MonoGameTextCompositionSamples/raw/master/Images/IME-ios.jpg)
