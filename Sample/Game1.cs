@@ -186,9 +186,9 @@ namespace Sample
             Vector2 textSize = font1.MeasureString(inputContent);
 
             if (PlatformInfo.MonoGamePlatform == MonoGamePlatform.iOS || PlatformInfo.MonoGamePlatform == MonoGamePlatform.Android)
-                spriteBatch.DrawString(font1, "Press F1 to Enable/Disable Text Composition", new Vector2(10, 10), Color.White);
-            else
                 spriteBatch.DrawString(font1, "Touch screen to Enable/Disable Text Composition", new Vector2(10, 10), Color.White);
+            else
+                spriteBatch.DrawString(font1, "Press F1 to Enable/Disable Text Composition", new Vector2(10, 10), Color.White);
 
             int offsetX = 10;
             int offsetY = 50;
