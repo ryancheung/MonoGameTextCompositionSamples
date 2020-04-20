@@ -11,3 +11,6 @@ PR: https://github.com/MonoGame/MonoGame/pull/7118
 
 ## DesktopGL in macOS
 ![IME works](https://github.com/ryancheung/MonoGameTextCompositionSamples/raw/master/Images/IME-desktopGL.png)
+
+## Android
+![IME works](https://github.com/ryancheung/MonoGameTextCompositionSamples/raw/master/Images/IME-android.jpg)
