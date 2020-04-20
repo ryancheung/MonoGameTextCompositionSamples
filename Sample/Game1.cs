@@ -1,12 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Input.Touch;
 using SpriteFontPlus;
 using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
+using MonoGame.Framework.Utilities;
 
 namespace Sample
 {
@@ -138,17 +140,36 @@ namespace Sample
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            KeyboardState ks = Keyboard.GetState();
-
-            if (ks.IsKeyDown(Keys.F1) && lastState.IsKeyUp(Keys.F1))
+            if (PlatformInfo.MonoGamePlatform == MonoGamePlatform.iOS || PlatformInfo.MonoGamePlatform == MonoGamePlatform.Android)
             {
-                if (Window.ImmService.IsTextInputActive)
-                    Window.ImmService.StopTextInput();
-                else
-                    Window.ImmService.StartTextInput();
-            }
+                TouchCollection touchCollection = TouchPanel.GetState();
+                foreach (TouchLocation touchLocation in touchCollection)
+                {
+                    if (TouchLocationState.Pressed == touchLocation.State)
+                    {
+                        if (!Window.ImmService.IsTextInputActive)
+                            Window.ImmService.StartTextInput();
+                        else
+                            Window.ImmService.StopTextInput();
 
-            lastState = ks;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                KeyboardState ks = Keyboard.GetState();
+
+                if (ks.IsKeyDown(Keys.F1) && lastState.IsKeyUp(Keys.F1))
+                {
+                    if (Window.ImmService.IsTextInputActive)
+                        Window.ImmService.StopTextInput();
+                    else
+                        Window.ImmService.StartTextInput();
+                }
+
+                lastState = ks;
+            }
 
             base.Update(gameTime);
         }
@@ -164,7 +185,10 @@ namespace Sample
 
             Vector2 textSize = font1.MeasureString(inputContent);
 
-            spriteBatch.DrawString(font1, "Press F1 to Enable/Disable Text Composition", new Vector2(10, 10), Color.White);
+            if (PlatformInfo.MonoGamePlatform == MonoGamePlatform.iOS || PlatformInfo.MonoGamePlatform == MonoGamePlatform.Android)
+                spriteBatch.DrawString(font1, "Press F1 to Enable/Disable Text Composition", new Vector2(10, 10), Color.White);
+            else
+                spriteBatch.DrawString(font1, "Touch screen to Enable/Disable Text Composition", new Vector2(10, 10), Color.White);
 
             int offsetX = 10;
             int offsetY = 50;
@@ -210,6 +234,11 @@ namespace Sample
 
                     }
                 }
+            }
+
+            if (PlatformInfo.MonoGamePlatform == MonoGamePlatform.iOS || PlatformInfo.MonoGamePlatform == MonoGamePlatform.Android)
+            {
+                spriteBatch.DrawString(font1, $"Virtual keyboard heght: {Window.ImmService.VirtualKeyboardHeight}", new Vector2(offsetX, 150), Color.Orange);
             }
 
             spriteBatch.End();
