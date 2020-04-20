@@ -6,4 +6,8 @@ PR: https://github.com/MonoGame/MonoGame/pull/7118
 
 # Screenshots
 
-![IME works](https://github.com/ryancheung/MonoGameTextCompositionSamples/raw/master/Images/IME-test1.png)
+## WindowsDX
+![IME works](https://github.com/ryancheung/MonoGameTextCompositionSamples/raw/master/Images/IME-windowsDX.png)
+
+## DesktopGL in macOS
+![IME works](https://github.com/ryancheung/MonoGameTextCompositionSamples/raw/master/Images/IME-desktopGL.png)
