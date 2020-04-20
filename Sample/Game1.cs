@@ -87,9 +87,14 @@ namespace Sample
                 _CandidatePageSize = e.CandidatePageSize;
                 _CandidateSelection = e.CandidateSelection;
 
-                var rect = new Rectangle(10, 50, 0, 0);
+                Vector2 textSize = font1.MeasureString(inputContent + _CompositionString);
+
+                var rect = new Rectangle(10 + (int)textSize.X, 50 + 32, 0, 0);
                 Window.ImmService.SetTextInputRect(rect);
             };
+
+            var rect2 = new Rectangle(10, 50 + 32, 0, 0);
+            Window.ImmService.SetTextInputRect(rect2);
 
             base.Initialize();
         }
