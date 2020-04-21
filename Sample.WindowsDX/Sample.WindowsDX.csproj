@@ -19,8 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.7.216-develop" />
-    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.7.216-develop" />
+    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.7.101-ime-develop" />
+    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.7.101-ime-develop" />
   </ItemGroup>
 
   <ItemGroup>

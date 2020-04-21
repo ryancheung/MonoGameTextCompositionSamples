@@ -3,7 +3,7 @@
   "isRoot": true,
   "tools": {
     "dotnet-mgcb": {
-      "version": "3.7.216-develop",
+      "version": "3.7.101-ime-develop",
       "commands": [
         "mgcb"
       ]
