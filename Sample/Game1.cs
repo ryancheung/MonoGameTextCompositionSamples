@@ -128,6 +128,8 @@ namespace Sample
 
             whitePixel = new Texture2D(GraphicsDevice, 1, 1);
             whitePixel.SetData<Color>(new Color[] { Color.White });
+
+            Window.ImmService.StartTextInput();
         }
 
         /// <summary>
@@ -142,19 +144,6 @@ namespace Sample
 
             if (PlatformInfo.MonoGamePlatform == MonoGamePlatform.iOS || PlatformInfo.MonoGamePlatform == MonoGamePlatform.Android)
             {
-                TouchCollection touchCollection = TouchPanel.GetState();
-                foreach (TouchLocation touchLocation in touchCollection)
-                {
-                    if (TouchLocationState.Pressed == touchLocation.State)
-                    {
-                        if (!Window.ImmService.IsTextInputActive)
-                            Window.ImmService.StartTextInput();
-                        else
-                            Window.ImmService.StopTextInput();
-
-                        break;
-                    }
-                }
             }
             else
             {

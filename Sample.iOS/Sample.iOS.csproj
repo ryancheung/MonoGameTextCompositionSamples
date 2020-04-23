@@ -109,8 +109,8 @@
     <BundleResource Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="MonoGame.Framework.iOS" Version="3.7.101-ime-develop" />
-    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.7.101-ime-develop" />
+    <PackageReference Include="MonoGame.Framework.iOS" Version="3.7.102-ime-develop" />
+    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.7.102-ime-develop" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sample\Sample.csproj">

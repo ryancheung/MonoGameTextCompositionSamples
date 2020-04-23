@@ -377,3 +377,6 @@ Temporary Items
 # Cake
 tools/**
 !tools/packages.config
+
+nuget.config
+
