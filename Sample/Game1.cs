@@ -203,7 +203,7 @@ namespace Sample
                 {
                     try
                     {
-                        var candidateStr = string.Format("{0}.{1}", i, _CandidateList[i]);
+                        var candidateStr = string.Format("{0}.{1}", i + 1, _CandidateList[i]);
                         var candidateDrawPos = new Vector2(offsetX + textSize.X, offsetY + i * lineHeight);
 
                         spriteBatch.DrawString(font1, candidateStr, candidateDrawPos, i == _CandidateSelection ? Color.Yellow : Color.White);
