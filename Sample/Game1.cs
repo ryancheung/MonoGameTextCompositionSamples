@@ -121,6 +121,7 @@ namespace Sample
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             font1 = DynamicSpriteFont.FromTtf(GetManifestResourceStream("SourceHanSans-Normal.otf"), 30);
+            font1.AddTtf(GetManifestResourceStream("seguiemj.ttf"));
 
             whitePixel = new Texture2D(GraphicsDevice, 1, 1);
             whitePixel.SetData<Color>(new Color[] { Color.White });

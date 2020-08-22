@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="..\Fonts\SourceHanSans-Normal.otf" Link="Fonts\SourceHanSans-Normal.otf" />
+    <EmbeddedResource Include="..\Fonts\seguiemj.ttf" Link="Fonts\seguiemj.ttf" />
   </ItemGroup>
 
   <ItemGroup>
