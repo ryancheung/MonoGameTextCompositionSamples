@@ -53,7 +53,18 @@ namespace Sample
                 {
                     case 8:
                         if (inputContent.Length > 0)
-                            inputContent = inputContent.Remove(inputContent.Length - 1, 1);
+                        {
+                            int lengthToRemove = 1;
+
+                            char char1 = inputContent[inputContent.Length - 1];
+                            if (char.IsSurrogate(char1))
+                            {
+                                char char2 = inputContent[inputContent.Length - 1 - 1];
+                                if (char.IsSurrogatePair(char2, char1))
+                                    lengthToRemove = 2;
+                            }
+                            inputContent = inputContent.Remove(inputContent.Length - lengthToRemove, lengthToRemove);
+                        }
                         break;
                     case 27:
                     case 13:
