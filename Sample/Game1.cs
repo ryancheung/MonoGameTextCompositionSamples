@@ -25,10 +25,6 @@ namespace Sample
         Texture2D whitePixel;
         string inputContent = string.Empty;
 
-        const int UnicodeSimplifiedChineseMin = 0x4E00;
-        const int UnicodeSimplifiedChineseMax = 0x9FA5;
-        const string DefaultChar = "□";
-
         private string _CompositionString = "|";
 
         private IMEString[] _CandidateList;
@@ -64,12 +60,7 @@ namespace Sample
                         inputContent = "";
                         break;
                     default:
-                        if (char.IsSurrogate(e.Character))
-                            break;
-                        if (e.Character > UnicodeSimplifiedChineseMax)
-                            inputContent += DefaultChar;
-                        else
-                            inputContent += e.Character;
+                        inputContent += e.Character;
                         break;
                 }
 
