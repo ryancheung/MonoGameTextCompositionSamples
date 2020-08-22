@@ -30,6 +30,12 @@ namespace Sample
         private IMEString[] _CandidateList;
         private int _CandidateSelection;
 
+        static Game1()
+        {
+            // Show OS IME Window
+            //ImmService.ShowOSImeWindow = true;
+        }
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -88,7 +94,7 @@ namespace Sample
 
                 Vector2 textSize = font1.MeasureString(inputContent + _CompositionString);
 
-                var rect = new Rectangle(10 + (int)textSize.X, 50 + 32, 0, 0);
+                var rect = new Rectangle(10 + (int)textSize.X, 50 + 32, 0, 40);
                 Window.ImmService.SetTextInputRect(rect);
             };
 
