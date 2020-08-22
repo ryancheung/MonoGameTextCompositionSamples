@@ -176,8 +176,13 @@ namespace Sample
             else
                 spriteBatch.DrawString(font1, "Press F1 to Enable/Disable Text Composition", new Vector2(10, 10), Color.White);
 
+            if (Window.ImmService.IsTextInputActive)
+                spriteBatch.DrawString(font1, "Text Composition enabled.", new Vector2(10, 40), Color.LightGray);
+            else
+                spriteBatch.DrawString(font1, "Text Composition disabled.", new Vector2(10, 40), Color.LightGray);
+
             int offsetX = 10;
-            int offsetY = 50;
+            int offsetY = 40 + 50;
 
             // Draw text inputs
             spriteBatch.DrawString(font1, inputContent, new Vector2(offsetX, offsetY), Color.White);
