@@ -32,10 +32,8 @@ namespace Sample
         private string _CompositionString = string.Empty;
         private int _CursorPosition = -1;
 
-        private string[] _CandidateList = new string[] { };
-        private uint _CandidatePageStart;
-        private uint _CandidatePageSize;
-        private uint _CandidateSelection;
+        private IMEString[] _CandidateList;
+        private int _CandidateSelection;
 
         public Game1()
         {
@@ -81,12 +79,10 @@ namespace Sample
 
             Window.ImmService.TextComposition += (o, e) =>
             {
-                _CompositionString = e.CompositionString;
+                _CompositionString = e.CompositionText.ToString();
                 _CursorPosition = e.CursorPosition;
 
                 _CandidateList = e.CandidateList;
-                _CandidatePageStart = e.CandidatePageStart;
-                _CandidatePageSize = e.CandidatePageSize;
                 _CandidateSelection = e.CandidateSelection;
 
                 Vector2 textSize = font1.MeasureString(inputContent + _CompositionString);
@@ -203,18 +199,12 @@ namespace Sample
             // Draw candidate list
             if (_CandidateList != null)
             {
-                for (uint i = _CandidatePageStart; i < Math.Min(_CandidatePageStart + _CandidatePageSize, _CandidateList.Length); i++)
+                for (int i = 0; i < _CandidateList.Length; i++)
                 {
-                    for (int j = 0; j < _CandidateList[i].Length; j++)
-                    {
-                        if (_CandidateList[i][0] > UnicodeSimplifiedChineseMax)
-                            _CandidateList[i] = DefaultChar;
-                    }
-
                     try
                     {
-                        var candidateStr = string.Format("{0}.{1}", i + 1 - _CandidatePageStart, _CandidateList[i]);
-                        var candidateDrawPos = new Vector2(offsetX + textSize.X, offsetY + (i - _CandidatePageStart) * lineHeight);
+                        var candidateStr = string.Format("{0}.{1}", i, _CandidateList[i]);
+                        var candidateDrawPos = new Vector2(offsetX + textSize.X, offsetY + i * lineHeight);
 
                         spriteBatch.DrawString(font1, candidateStr, candidateDrawPos, i == _CandidateSelection ? Color.Yellow : Color.White);
                     }
