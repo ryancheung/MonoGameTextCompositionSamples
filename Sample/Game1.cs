@@ -29,8 +29,7 @@ namespace Sample
         const int UnicodeSimplifiedChineseMax = 0x9FA5;
         const string DefaultChar = "□";
 
-        private string _CompositionString = string.Empty;
-        private int _CursorPosition = -1;
+        private string _CompositionString = "|";
 
         private IMEString[] _CandidateList;
         private int _CandidateSelection;
@@ -80,7 +79,7 @@ namespace Sample
             Window.ImmService.TextComposition += (o, e) =>
             {
                 _CompositionString = e.CompositionText.ToString();
-                _CursorPosition = e.CursorPosition;
+                _CompositionString = _CompositionString.Insert(e.CursorPosition, "|");
 
                 _CandidateList = e.CandidateList;
                 _CandidateSelection = e.CandidateSelection;
@@ -190,13 +189,6 @@ namespace Sample
             // Draw text composition string
             var compStrDrawX = offsetX + (int)textSize.X + 2;
             spriteBatch.DrawString(font1, _CompositionString, new Vector2(compStrDrawX, offsetY), Color.Orange);
-
-            // Draw cursor
-            Vector2 cursorDrawPos = new Vector2(compStrDrawX, offsetY);
-            Color compColor = Color.White;
-
-            if (_CursorPosition >= 0)
-                spriteBatch.Draw(whitePixel, new Rectangle((int)cursorDrawPos.X, (int)cursorDrawPos.Y, 1, (int)font1.Size), Color.White);
 
             int lineHeight = 32;
 
