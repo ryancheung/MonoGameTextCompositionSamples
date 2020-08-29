@@ -77,6 +77,9 @@ namespace Sample
                         inputContent = "";
                         break;
                     default:
+                        if (char.IsControl(e.Character))
+                            break;
+
                         inputContent += e.Character;
                         break;
                 }
