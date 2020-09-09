@@ -29,6 +29,7 @@ namespace Sample
 
         private IMEString[] _CandidateList;
         private int _CandidateSelection;
+        private int _CandidatePageSize;
 
         static Game1()
         {
@@ -94,6 +95,7 @@ namespace Sample
 
                 _CandidateList = e.CandidateList;
                 _CandidateSelection = e.CandidateSelection;
+                _CandidatePageSize = e.CandidatePageSize;
 
                 Vector2 textSize = font1.MeasureString(inputContent + _CompositionString);
 
@@ -136,7 +138,8 @@ namespace Sample
             whitePixel = new Texture2D(GraphicsDevice, 1, 1);
             whitePixel.SetData<Color>(new Color[] { Color.White });
 
-            Window.ImmService.StartTextInput();
+            // This line crash in CoreRT :P
+            //Window.ImmService.StartTextInput();
         }
 
         /// <summary>
@@ -208,7 +211,7 @@ namespace Sample
             // Draw candidate list
             if (_CandidateList != null)
             {
-                for (int i = 0; i < _CandidateList.Length; i++)
+                for (int i = 0; i < _CandidatePageSize; i++)
                 {
                     try
                     {
